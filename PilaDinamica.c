@@ -1,5 +1,19 @@
+/*
+ * Instituto Politécnico Nacional
+ * Escuela Superior de Cómputo
+ * Estructura de datos
+ * Grupo: 1CV8
+ * Alumno: García Tello Axel
+ * Profesor: Benjamín Luna Benoso
+ * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ * Cabeceras para las funciones de listas
+ * 
+ * Fecha: 17 de marzo de 2019
+*/
+
 #include "PilaDinamica.h"
 
+//Función para la creación de un nodo
 NODO *CrearNodo(NODO *enlace, TipoDato x){
 	NODO *nuevo=(NODO *) malloc(sizeof(NODO));
 	nuevo->dato=x;
@@ -7,12 +21,14 @@ NODO *CrearNodo(NODO *enlace, TipoDato x){
 	return nuevo;
 }
 
+//Función para la insertar un valor en un nodo
 void insertarCabLSE(NODO **cab, TipoDato x){
 	NODO *nuevo=CrearNodo(nuevo,x);
 	nuevo->siguiente=*cab;
 	*cab=nuevo;
 }
 
+//Función para eliminar una lista
 void eliminarLSE(NODO **cab, TipoDato x){
 	NODO *ant, *actual=*cab;
 	int bandera=0;
@@ -34,6 +50,7 @@ void eliminarLSE(NODO **cab, TipoDato x){
 	}
 }
 
+//Función para imprimir una lista
 void imprimirLSE(NODO *cab){
 	if(cab!=NULL){
 		imprimirLSE(cab->siguiente);
